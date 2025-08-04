@@ -15,6 +15,12 @@ import { StyleContext } from './StyleContext';
 import ComponentOne from './ComponentOne';
 import ComponentTwo from './ComponentTwo';
 import ComponentThree from './ComponentThree';
+import TodoReducer from './TodoReducer';
+import GlobalContext from './GlobalContext';
+import ContactForm from './ContactForm';
+import FormData from './FormData';
+import MyNavbar from './Cotton mill project/Navbar';
+
 
 function App() {
 
@@ -26,18 +32,21 @@ function App() {
   //   margin: "10px",
   // };
 
-  const [style, setStyle] = useState({
+  // const [style, setStyle] = useState({
 
-    color: " #FF6F61",
-    backgroundColor: " #F7CAC9",
-    border: "2px solid: #92A8D1",
-    padding: "10px",
-    margin: "10px",
-  });
+  //   color: " #FF6F61",
+  //   backgroundColor: " #F7CAC9",
+  //   border: "2px solid: #92A8D1",
+  //   padding: "10px",
+  //   margin: "10px",
+  // });
+
+  const [style, setStyle] = useState();
 
 
   return (
     <>
+    {/* <MyNavbar/> */}
       {/* <Reacttemp /> */}
       {/* <Element /> */}
       {/* <Demostate /> */}
@@ -50,11 +59,21 @@ function App() {
         </ThemeContext.Provider>
       </UserContext.Provider> */}
 
-      <StyleContext.Provider value={{ style, setStyle }}>
+      {/* <StyleContext.Provider value={{ style, setStyle }}>
         <ComponentOne />
         <ComponentTwo />
         <ComponentThree />
-      </StyleContext.Provider>
+      </StyleContext.Provider> */}
+
+
+
+      {/* <GlobalContext.Provider value={{ style, setStyle }}>
+        <TodoReducer />
+      </GlobalContext.Provider> */}
+
+      {/* <ContactForm /> */}
+      <FormData />
+      
 
 
     </>
