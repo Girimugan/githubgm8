@@ -18,7 +18,7 @@ function MyForm() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="formed">
 
-            <h2 className="heading2">USER REGISTRATION</h2>
+            <h2 className="heading2">USER FORM</h2>
 
             <div className="form-group">
                 <label>Name :</label>
@@ -26,10 +26,15 @@ function MyForm() {
                     {...register("name", {
                         required: "Name is required",
                         minLength: { value: 3, message: "Minimum 3 characters" },
-                        maxLength: { value: 15, message: "Maximum 15 characters" }, })} />
+                        maxLength: { value: 15, message: "Maximum 15 characters" },
+                        pattern: {
+                            value: /^[A-Za-z ]+$/,
+                            message: "Only alphabets and space allowed"
+                        }
+                    })} />
                 {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
                 {!errors.name && touchedFields.name && (
-                    <p style={{ color: "green" }}>Name is valid</p> )}
+                    <p style={{ color: "green" }}>Name is valid</p>)}
             </div>
 
             <div className="form-group">
@@ -40,10 +45,12 @@ function MyForm() {
                         required: "Email is required",
                         pattern: {
                             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: "Invalid email format", }, })} />
+                            message: "Invalid email format",
+                        },
+                    })} />
                 {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
                 {!errors.email && touchedFields.email && (
-                    <p style={{ color: "green" }}>Email is valid</p> )}
+                    <p style={{ color: "green" }}>Email is valid</p>)}
             </div>
 
             <div className="form-group">
@@ -58,7 +65,9 @@ function MyForm() {
                         },
                         pattern: {
                             value: /[!@#$%^&*(),.?":{}|<>]/,
-                            message: "Password must include at least one symbol",}, })} />
+                            message: "Password must include at least one symbol",
+                        },
+                    })} />
                 {errors.password && (
                     <p style={{ color: "red" }}>{errors.password.message}</p>
                 )}
@@ -74,7 +83,8 @@ function MyForm() {
                     {...register("confirmpassword", {
                         required: "Confirm Password is required",
                         validate: (value) =>
-                            value === password || "Passwords do not match", })} />
+                            value === password || "Passwords do not match",
+                    })} />
                 {errors.confirmpassword && (
                     <p style={{ color: "red" }}>{errors.confirmpassword.message}</p>
                 )}
@@ -84,7 +94,7 @@ function MyForm() {
             </div>
 
             <div className="form-group">
-                <label>Phone :</label>
+                <label>Contact no :</label>
                 <input
                     type="number"
                     {...register("phone", {
@@ -95,7 +105,7 @@ function MyForm() {
                         },
                         validate: (value) =>
                             value.length === 10 || "Phone number must be exactly 10 digits",
-                    })}/>
+                    })} />
                 {errors.phone && <p style={{ color: "red" }}>{errors.phone.message}</p>}
                 {!errors.phone && touchedFields.phone && (
                     <p style={{ color: "green" }}>Phone number is valid</p>)}
