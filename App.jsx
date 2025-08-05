@@ -3,6 +3,7 @@ import Reacttemp from './core-concepts/Reacttemp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
+import './MyForm.css';
 import Demostate from './Demostate';
 import Element from './Element';
 import Usetable from './Usetable';
